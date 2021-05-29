@@ -8,13 +8,13 @@ public class Command {
 
     public static final String DEFAULT_WIDE = "1280";
     public static final String DEFAULT_HEIGHT = "720";
-    public static final String DEFAULT_TIMEOUT = "100";
+    public static final String DEFAULT_TIMEOUT = "1000";
 
 
     public static final String SUDO = "sudo ";
     public static final String RASPISTILL = "raspistill ";
     public static final String OUTPUT_ENABLE = "-o ";
-    public static final String PATH_TO_SAVE = "~/Pictures/";
+    public static final String PATH_TO_SAVE = "/home/pi/Pictures/";
     public static final String FILE_NAME = "new_image.jpg ";
     public static final String WIDE_HIEGHT = "-w "+DEFAULT_WIDE +" -h "+DEFAULT_HEIGHT+" ";
     public static final String TIMEOUT = "-t "+DEFAULT_TIMEOUT+" ";
@@ -32,7 +32,8 @@ public class Command {
 
         try {
             Process proc = Runtime.getRuntime().exec(takePicCommand);
-            // Read the output
+	    System.out.println(takePicCommand);
+     	    // Read the output
 
             BufferedReader reader =
                     new BufferedReader(new InputStreamReader(proc.getInputStream()));
