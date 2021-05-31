@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.atomic.AtomicLong;
@@ -36,7 +36,8 @@ public class PiController {
         if (takePic.run()) {
             System.out.println("picutre hs been taken");
         }
-        InputStream in =getClass().getResourceAsStream("/image.jpg");
+	InputStream in = new FileInputStream("/home/pi/Pictures/new_image.jpg");
+       // InputStream in =getClass().getResourceAsStream("/image.jpg");
         return IOUtils.toByteArray(in);
     }
 
